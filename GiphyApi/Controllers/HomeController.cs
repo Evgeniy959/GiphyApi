@@ -1,5 +1,6 @@
 ﻿using GiphyApi.Models;
 using GiphyApi.Services;
+using GiphyApi.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,15 +27,25 @@ namespace GiphyApi.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Search(string GiphyTitle)
+        public async Task<IActionResult> Search(string giphyTitle, int page = 1)
         {
             //ViewBag.Result = await giphyApiService.SearchByTitle(GiphyTitle);
-            Rootobject result = await giphyApiService.SearchByTitle(GiphyTitle);
-            //ViewBag.Result = result?.data[0]?.title;
-            ViewBag.Result = result?.data?.title;
+            var result = await giphyApiService.SearchByTitle(giphyTitle, page);
+            ViewBag.Result = result?.data.FirstOrDefault()?.title;
+            //ViewBag.Result = result?.data?.title;
             /*ViewBag.Result = result.totalResults;
             ViewBag.MovieTitle = result?.Search[0]?.Title;*/
-            return View(result);
+            
+            SearchViewModel searchViewModel = new SearchViewModel()
+            {
+                CurrentPage = page,
+                Title = giphyTitle,
+                data = result.data,
+                TotalPages = (int)Math.Ceiling(result.pagination.total_count / 10.0),
+                TotalResults = result.pagination.total_count
+            };
+            return View(searchViewModel);
+            //return View(result);
         }
 
         public IActionResult Privacy()

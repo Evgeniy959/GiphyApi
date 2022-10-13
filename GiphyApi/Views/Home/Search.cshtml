@@ -2,23 +2,78 @@
 @{
     ViewData["Title"] = "Search";
 }
-@model Rootobject;
-<h1>Search results by title : @ViewBag.Result</h1>
-<h5 class="card-title">@Model.data.title</h5>
+@model SearchViewModel;
+<h1>Search results by title : @Model.Title</h1>
+<small>Total results :  @Model.TotalResults </small>
 <div class="row">
-    <iframe src="@Model.data.embed_url" class="card-img-top" alt="..."></iframe>
+    @foreach (var item in Model.data)
+    {
+        <div class="col-3 card">
+            <iframe src="@item.embed_url" class="card-img-top" alt="..."></iframe>
+            <div class="card-body">
+                <h5 class="card-title">@item.title</h5>
+                <p class="card-text">@item.rating.</p>
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@item.source" class="btn btn-primary">Show Details</a>
+            </div>
+        </div>
+    }
 </div>
-    @*<div class="row">
-        @foreach (var item in Model.data)
-               {
-                   <div class="col-3 card">
-                       <img src="@item.url" class="card-img-top" alt="...">
-                       <div class="card-body">
-                           <h5 class="card-title">@item.title</h5>
-                           <p class="card-text">@item.rating.</p>
-                           <a asp-controller="Home" asp-action="Details" asp-route-id="@item.source" class="btn btn-primary">Show Details</a>
-                       </div>
-                   </div>
-               }
-           </div>*@
+<nav aria-label="Page navigation example" class="d-flex align-content-center justify-content-sm-center">
+    <ul class="pagination">
+
+        @if (Model.CurrentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link"
+                   asp-action="Search"
+                   asp-controller="Home"
+                   asp-route-movieTitle="@Model.Title"
+                   asp-route-page="@(Model.CurrentPage-1)">Previous</a>
+            </li>
+        }
+
+        @for (var i = Model.CurrentPage - 4; i <= Model.CurrentPage + 4; i++)
+        {
+
+            @if (i > 0 && i < Model.TotalPages)
+            {
+                @if (Model.CurrentPage == i)
+                {
+                    <li class="page-item active">
+                        <a class="page-link"
+                           asp-action="Search"
+                           asp-controller="Home"
+                           asp-route-movieTitle="@Model.Title"
+                           asp-route-page="@i">@i</a>
+                    </li>
+                }
+                else
+                {
+
+                    <li class="page-item">
+                        <a class="page-link"
+                           asp-action="Search"
+                           asp-controller="Home"
+                           asp-route-movieTitle="@Model.Title"
+                           asp-route-page="@i">@i</a>
+                    </li>
+                }
+            }
+
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <li class="page-item">
+                <a class="page-link"
+                   asp-action="Search"
+                   asp-controller="Home"
+                   asp-route-movieTitle="@Model.Title"
+                   asp-route-page="@(Model.CurrentPage+1)">Next</a>
+            </li>
+        }
+
+
+    </ul>
+</nav>
 

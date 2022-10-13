@@ -25,11 +25,11 @@ namespace GiphyApi.Services
             httpClient = httpClientFactory.CreateClient();
             this.memoryCache = memoryCache;*/
         }
-        public async Task<Rootobject> SearchByTitle(string title)
+        public async Task<GiphyApiResponse> SearchByTitle(string title, int page)
         {
-            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=25&offset=0&rating=g&lang=en");
+            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=25&offset=0&rating=g&lang=en&page={page}");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<Rootobject>(json);
+            var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
 
             return result;
         }
