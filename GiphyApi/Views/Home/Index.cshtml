@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Giphy search</h1>
+</div>
+
+<form asp-controller="Home" asp-action="Search" method="get" class="input-group mb-3">
+    <input required name="GiphyTitle" type="text" class="form-control" placeholder="Кeyword or phrase" aria-label="Recipient's movie title" aria-describedby="button-addon2">
+    <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>
+</form>
