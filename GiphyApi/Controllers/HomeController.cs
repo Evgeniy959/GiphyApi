@@ -42,13 +42,22 @@ namespace GiphyApi.Controllers
             return View(searchViewModel);
         }
 
-        public async Task<IActionResult> UserInfo(string giphyTitle, User user)
+        public async Task<IActionResult> UserInfo(string giphyTitle, int page = 1)
         {
             Data data = new Data();
             data.Title = giphyTitle;
             //User user = new User();
-            //var userInfo = await giphyApiService.UserShow(user);
-            return View(user);
+            var result = await giphyApiService.UserShow(giphyTitle, page);
+            SearchViewModel searchViewModel = new SearchViewModel()
+            {
+                CurrentPage = page,
+                Title = giphyTitle,
+                data = result.data,
+                TotalPages = (int)Math.Ceiling(result.pagination.total_count / 24.0),
+                TotalResults = result.pagination.total_count
+            };
+            return View(searchViewModel);
+            //return View(user);
         }
 
         public IActionResult Privacy()

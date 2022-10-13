@@ -33,11 +33,11 @@ namespace GiphyApi.Services
             var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
             return result;
         }
-        public async Task<User> UserShow(string title, int page)
+        public async Task<GiphyApiResponse> UserShow(string title, int page)
         {
             var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=24&offset={page}&rating=g&lang=en");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<User>(json);
+            var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
             return result;
         }
     }

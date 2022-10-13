@@ -13,7 +13,7 @@
             <div class="card-body">
                 <h5 class="card-title">@item.title</h5>
                 <p class="card-text">@item.type.</p>
-                <a asp-controller="Home" asp-action="UserInfo" asp-route-giphyTitle="@item.Title" asp-route-user="@item.user" class="btn btn-primary">Show User</a>
+                <a asp-controller="Home" asp-action="UserInfo" asp-route-giphyTitle="@item.Title" asp-route-page="@item.user" class="btn btn-primary">Show User</a>
             </div>
         </div>
     }
@@ -27,6 +27,7 @@
             <li class="page-item">
                 <a class="page-link"
                    asp-action="Search"
+                   asp-action="UserInfo"
                    asp-controller="Home"
                    asp-route-giphyTitle="@Model.Title"
                    asp-route-page="@(Model.CurrentPage-1)">Previous</a>
@@ -43,6 +44,7 @@
                     <li class="page-item active">
                         <a class="page-link"
                            asp-action="Search"
+                           asp-action="UserInfo"
                            asp-controller="Home"
                            asp-route-giphyTitle="@Model.Title"
                            asp-route-page="@i">@i</a>
@@ -54,6 +56,7 @@
                     <li class="page-item">
                         <a class="page-link"
                            asp-action="Search"
+                           asp-action="UserInfo"
                            asp-controller="Home"
                            asp-route-giphyTitle="@Model.Title"
                            asp-route-page="@i">@i</a>
@@ -68,6 +71,7 @@
             <li class="page-item">
                 <a class="page-link"
                    asp-action="Search"
+                   asp-action="UserInfo"
                    asp-controller="Home"
                    asp-route-giphyTitle="@Model.Title"
                    asp-route-page="@(Model.CurrentPage+1)">Next</a>
