@@ -16,7 +16,7 @@ namespace GiphyApi.Services
 
         public GiphyApiService()
         {
-            BaseUrl = "https://api.giphy.com/v1/gifs/translate";
+            BaseUrl = "https://api.giphy.com/v1/gifs/search";
             ApiKey = "01riibfAzoW0vJwE5crOV45rAm6NAzcJ";
             httpClient = new HttpClient();
 
@@ -27,7 +27,7 @@ namespace GiphyApi.Services
         }
         public async Task<Rootobject> SearchByTitle(string title)
         {
-            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&s={title}");
+            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=25&offset=0&rating=g&lang=en");
             var json = await response.Content.ReadAsStringAsync();
             var result = JsonSerializer.Deserialize<Rootobject>(json);
 
