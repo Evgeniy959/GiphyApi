@@ -14,7 +14,7 @@
             public string instagram_url { get; set; }
             public string website_url { get; set; }
             public bool is_verified { get; set; }
-        }
+    }
 
 
     //}

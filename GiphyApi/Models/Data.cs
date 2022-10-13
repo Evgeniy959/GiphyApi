@@ -25,7 +25,9 @@
             public User user { get; set; }
             public string analytics_response_payload { get; set; }
             //public Analytics analytics { get; set; }
-        }
+            public string Title { get; set; }
+
+    }
 
 
     //}

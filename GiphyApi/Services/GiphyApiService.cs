@@ -18,6 +18,7 @@ namespace GiphyApi.Services
         {
             BaseUrl = "https://api.giphy.com/v1/gifs/search";
             ApiKey = "01riibfAzoW0vJwE5crOV45rAm6NAzcJ";
+            //ApiKey = "2cZh7c1R386eVz3BE2PBb2ARmJuVfTen";
             httpClient = new HttpClient();
 
             /*BaseUrl = options.Value.BaseUrl;
@@ -27,10 +28,16 @@ namespace GiphyApi.Services
         }
         public async Task<GiphyApiResponse> SearchByTitle(string title, int page)
         {
-            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=25&offset=0&rating=g&lang=en&page={page}");
+            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=24&offset={page}&rating=g&lang=en");
             var json = await response.Content.ReadAsStringAsync();
             var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
-
+            return result;
+        }
+        public async Task<User> UserShow(string title, int page)
+        {
+            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=24&offset={page}&rating=g&lang=en");
+            var json = await response.Content.ReadAsStringAsync();
+            var result = JsonSerializer.Deserialize<User>(json);
             return result;
         }
     }
