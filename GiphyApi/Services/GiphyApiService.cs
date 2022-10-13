@@ -27,7 +27,7 @@ namespace GiphyApi.Services
         }
         public async Task<GiphyApiResponse> SearchByTitle(string title, int page)
         {
-            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=25&offset=0&rating=g&lang=en&page={page}");
+            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=10&offset=0&rating=g&lang=en&page={page}");
             var json = await response.Content.ReadAsStringAsync();
             var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
 
