@@ -44,19 +44,13 @@ namespace GiphyApi.Controllers
 
         public async Task<IActionResult> UserInfo(string giphyTitle, int page = 1)
         {
-            Data data = new Data();
-            data.Title = giphyTitle;
+            
             //User user = new User();
             var result = await giphyApiService.UserShow(giphyTitle, page);
-            SearchViewModel searchViewModel = new SearchViewModel()
-            {
-                CurrentPage = page,
-                Title = giphyTitle,
-                data = result.data,
-                TotalPages = (int)Math.Ceiling(result.pagination.total_count / 24.0),
-                TotalResults = result.pagination.total_count
-            };
-            return View(searchViewModel);
+            //Data data = new Data();
+            result.data.FirstOrDefault().Title = giphyTitle;
+            result.data.FirstOrDefault().Page = page;
+            return View(result);
             //return View(user);
         }
 
