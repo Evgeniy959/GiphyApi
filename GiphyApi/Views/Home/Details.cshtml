@@ -1,0 +1,127 @@
+﻿@model GiphyApi.Models.Data
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>@Model.username</h4>
+    <iframe src="@Model.embed_url" class="card-img-top" alt="..."></iframe>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.slug)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.slug)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.bitly_gif_url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.bitly_gif_url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.bitly_url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.bitly_url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.embed_url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.embed_url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.source)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.source)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.content_url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.content_url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.source_tld)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.source_tld)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.source_post_url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.source_post_url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.is_sticker)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.is_sticker)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.import_datetime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.import_datetime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.trending_datetime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.trending_datetime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.analytics_response_payload)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.analytics_response_payload)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

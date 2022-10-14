@@ -42,13 +42,11 @@ namespace GiphyApi.Controllers
             return View(searchViewModel);
         }
 
-        public async Task<IActionResult> UserInfo(string giphyTitle, User user)
+        public async Task<IActionResult> Details(string id)
         {
-            Data data = new Data();
-            data.Title = giphyTitle;
-            //User user = new User();
-            //var userInfo = await giphyApiService.UserShow(user);
-            return View(user);
+            var details = await giphyApiService.SearchById(id);
+            Console.WriteLine("Details - " + id);
+            return View(details);
         }
 
         public IActionResult Privacy()

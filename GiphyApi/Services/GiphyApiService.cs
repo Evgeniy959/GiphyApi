@@ -16,7 +16,7 @@ namespace GiphyApi.Services
 
         public GiphyApiService()
         {
-            BaseUrl = "https://api.giphy.com/v1/gifs/search";
+            BaseUrl = "https://api.giphy.com/v1/gifs/";
             ApiKey = "01riibfAzoW0vJwE5crOV45rAm6NAzcJ";
             //ApiKey = "2cZh7c1R386eVz3BE2PBb2ARmJuVfTen";
             httpClient = new HttpClient();
@@ -28,20 +28,21 @@ namespace GiphyApi.Services
         }
         public async Task<GiphyApiResponse> SearchByTitle(string title, int page)
         {
-            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=24&offset={page}&rating=g&lang=en");
+            var response = await httpClient.GetAsync($"{BaseUrl}search?apikey={ApiKey}&q={title}&limit=24&offset={page}&rating=g&lang=en");
             var json = await response.Content.ReadAsStringAsync();
             var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
             return result;
         }
-        public async Task<User> UserShow(string title, int page)
+        public async Task<Data> SearchById(string id)
         {
-            var response = await httpClient.GetAsync($"{BaseUrl}?apikey={ApiKey}&q={title}&limit=24&offset={page}&rating=g&lang=en");
+            var response = await httpClient.GetAsync($"{BaseUrl}{id}?apikey={ApiKey}");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<User>(json);
+            var result = JsonSerializer.Deserialize<Data>(json);
             return result;
         }
     }
     
 }
-//https://api.giphy.com/v1/gifs/translate?api_key=01riibfAzoW0vJwE5crOV45rAm6NAzcJ&s=%D0%BB%D0%B5%D0%B2
 //https://api.giphy.com/v1/gifs/search?api_key=01riibfAzoW0vJwE5crOV45rAm6NAzcJ&q=%D0%BB%D0%B5%D0%B2&limit=25&offset=0&rating=g&lang=en
+//https://api.giphy.com/v1/gifs/553vlRAc1XZTVlAk3L?api_key=01riibfAzoW0vJwE5crOV45rAm6NAzcJ
+//https://api.giphy.com/v1/gifs/553vlRAc1XZTVlAk3L?api_key=01riibfAzoW0vJwE5crOV45rAm6NAzcJ

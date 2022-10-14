@@ -13,7 +13,7 @@
             <div class="card-body">
                 <h5 class="card-title">@item.title</h5>
                 <p class="card-text">@item.type.</p>
-                <a asp-controller="Home" asp-action="UserInfo" asp-route-giphyTitle="@item.Title" asp-route-user="@item.user" class="btn btn-primary">Show User</a>
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@item.id" class="btn btn-primary">Show details</a>
             </div>
         </div>
     }

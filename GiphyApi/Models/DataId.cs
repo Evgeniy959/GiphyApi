@@ -1,8 +1,8 @@
 ﻿namespace GiphyApi.Models
 {
     //public partial class ErrorViewModel
-    //{
-        public class Data
+    ///{
+        public class DataId
         {
             public string type { get; set; }
             public string id { get; set; }
@@ -23,11 +23,9 @@
             public string trending_datetime { get; set; }
             //public Images images { get; set; }
             public User user { get; set; }
-            public string analytics_response_payload { get; set; }
             //public Analytics analytics { get; set; }
-
-    }
-
+            public string analytics_response_payload { get; set; }
+        }
 
     //}
 }
