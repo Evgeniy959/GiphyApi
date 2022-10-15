@@ -37,7 +37,7 @@ namespace GiphyApi.Controllers
                 Title = giphyTitle,
                 data = result.data,
                 TotalPages = (int)Math.Ceiling(result.pagination.total_count / 24.0),
-                TotalResults = result.pagination.total_count
+                TotalCount = result.pagination.total_count
             };
             return View(searchViewModel);
         }

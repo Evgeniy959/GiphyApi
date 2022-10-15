@@ -4,7 +4,7 @@
 }
 @model SearchViewModel;
 <h1>Search results by title : @Model.Title</h1>
-<small>Total results :  @Model.TotalResults </small>
+<small>Total count :  @Model.TotalCount </small>
 <div class="row">
     @foreach (var item in Model.data)
     {
@@ -33,7 +33,7 @@
             </li>
         }
 
-        @for (var i = Model.CurrentPage - 4; i <= Model.CurrentPage + 4; i++)
+        @for (var i = Model.CurrentPage - 6; i <= Model.CurrentPage + 6; i++)
         {
 
             @if (i > 0 && i < Model.TotalPages)

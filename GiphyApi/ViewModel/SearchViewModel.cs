@@ -10,7 +10,7 @@ namespace GiphyApi.ViewModel
     {
         public IEnumerable<Data> data { get; set; }
         public string Title { get; set; }
-        public int TotalResults { get; set; }
+        public int TotalCount { get; set; }
         public int CurrentPage { get; set; }
         public int TotalPages { get; set; }
     }
