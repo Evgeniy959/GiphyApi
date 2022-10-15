@@ -1,6 +1,8 @@
 ﻿namespace GiphyApi.Models
 {
-    public class Data
+    //public partial class ErrorViewModel
+    //{
+    public class DataIE
     {
         public string type { get; set; }
         public string id { get; set; }
@@ -19,11 +21,19 @@
         public int is_sticker { get; set; }
         public string import_datetime { get; set; }
         public string trending_datetime { get; set; }
-        public Images images { get; set; }
+        //public Images images { get; set; }
         public User user { get; set; }
-        public Analytics analytics { get; set; }
         public string analytics_response_payload { get; set; }
+        //public Analytics analytics { get; set; }
+
     }
+
+    /*public class Meta
+    {
+        public string msg { get; set; }
+        public int status { get; set; }
+        public string response_id { get; set; }
+    }*/
 
 
 

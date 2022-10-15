@@ -45,7 +45,9 @@ namespace GiphyApi.Controllers
         public async Task<IActionResult> Details(string id)
         {
             var details = await giphyApiService.SearchById(id);
+            //ViewBag.Result = await giphyApiService.SearchById(id);
             Console.WriteLine("Details - " + id);
+            //return View();
             return View(details);
         }
 

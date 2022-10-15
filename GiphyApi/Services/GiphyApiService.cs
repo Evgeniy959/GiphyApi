@@ -17,8 +17,8 @@ namespace GiphyApi.Services
         public GiphyApiService()
         {
             BaseUrl = "https://api.giphy.com/v1/gifs/";
-            ApiKey = "01riibfAzoW0vJwE5crOV45rAm6NAzcJ";
-            //ApiKey = "2cZh7c1R386eVz3BE2PBb2ARmJuVfTen";
+            //ApiKey = "01riibfAzoW0vJwE5crOV45rAm6NAzcJ";
+            ApiKey = "2cZh7c1R386eVz3BE2PBb2ARmJuVfTen";
             httpClient = new HttpClient();
 
             /*BaseUrl = options.Value.BaseUrl;
@@ -33,12 +33,13 @@ namespace GiphyApi.Services
             var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
             return result;
         }
-        public async Task<Data> SearchById(string id)
+        public async Task<DataId> SearchById(string id)
         {
             var response = await httpClient.GetAsync($"{BaseUrl}{id}?apikey={ApiKey}");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<Data>(json);
+            var result = JsonSerializer.Deserialize<DataId>(json);
             return result;
+            //return json;
         }
     }
     
