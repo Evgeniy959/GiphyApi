@@ -14,9 +14,9 @@ namespace GiphyApi.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly GiphyApiService giphyApiService;
+        private readonly IGiphyApiService giphyApiService;
 
-        public HomeController(ILogger<HomeController> logger, GiphyApiService giphyApiService)
+        public HomeController(ILogger<HomeController> logger, IGiphyApiService giphyApiService)
         {
             _logger = logger;
             this.giphyApiService = giphyApiService;

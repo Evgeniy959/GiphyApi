@@ -1,0 +1,18 @@
+﻿@model Data
+
+<div class="card top-div">
+    <iframe src="@Model.embed_url" onerror="event.target.src='/images/404.gif'" class="card-img-top" alt="..."></iframe>
+
+    <div class="img-div block card-body">
+        <h5 class="card-title">@Model.title &nbsp</h5>
+        <p class="card-text">@Model.type. &nbsp</p>
+        @if (Model.type != null)
+        {
+            <div class="show">
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.id" class="btn btn-primary">Show details</a>
+            </div>
+        }
+    </div>
+</div>
+
+

@@ -8,13 +8,8 @@
 <div class="row">
     @foreach (var item in Model.data)
     {
-        <div class="col-3 card">
-            <iframe src="@item.embed_url" class="card-img-top" alt="..."></iframe>
-            <div class="card-body">
-                <h5 class="card-title">@item.title</h5>
-                <p class="card-text">@item.type.</p>
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@item.id" class="btn btn-primary">Show details</a>
-            </div>
+        <div class="col-md-4">
+            <partial name="_MovieCardPartial" model="item" />
         </div>
     }
 </div>

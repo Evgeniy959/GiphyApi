@@ -1,3 +1,4 @@
+using GiphyApi.Extensions;
 using GiphyApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +26,16 @@ namespace GiphyApi
         {
             services.AddControllersWithViews();
             services.AddHttpClient();
-            services.AddTransient<GiphyApiService>();
+            services.AddGiphyApi(options =>
+            {
+                options.ApiKey = Configuration["GiphyApiKey:ApiKey"];
+                options.BaseUrl = Configuration["GiphyApiKey:BaseUrl"];
+            });
+            //services.AddTransient<IGiphyApiService, GiphyApiService>();
+            services.AddWebOptimizer(options =>
+            {
+                options.CompileScssFiles();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +49,7 @@ namespace GiphyApi
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseWebOptimizer();
             app.UseStaticFiles();
 
             app.UseRouting();
