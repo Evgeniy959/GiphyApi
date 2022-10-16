@@ -33,11 +33,14 @@ namespace GiphyApi.Services
             var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
             return result;
         }
-        public async Task<Data> SearchById(string id)
+        public async Task<GiphyApiResponseId> SearchById(string id)
         {
             var response = await httpClient.GetAsync($"{BaseUrl}{id}?apikey={ApiKey}");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<Data>(json);
+            //Console.WriteLine(json);
+
+            var result = JsonSerializer.Deserialize<GiphyApiResponseId>(json);
+            //Console.WriteLine(result.title);
             return result;
         }
     }

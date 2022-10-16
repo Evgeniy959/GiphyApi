@@ -1,4 +1,4 @@
-﻿@model GiphyApi.Models.Data
+﻿@model GiphyApi.Models.GiphyApiResponseId
 
 @{
     ViewData["Title"] = "Details";
@@ -8,110 +8,92 @@
 
 <div>
     @*<h4>@Model.username</h4>*@
-    <iframe src="@Model.embed_url" class="card-img-top" alt="..."></iframe>
+    <iframe src="@Model.data.embed_url" class="card-img-top" alt="..."></iframe>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.type)
+            @Html.DisplayNameFor(model => model.data.type)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.type)
+            @Html.DisplayFor(model => model.data.type)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.id)
+            @Html.DisplayNameFor(model => model.data.id)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.id)
+            @Html.DisplayFor(model => model.data.id)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.url)
+            @Html.DisplayNameFor(model => model.data.slug)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.url)
+            @Html.DisplayFor(model => model.data.slug)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.slug)
+            @Html.DisplayNameFor(model => model.data.username)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.slug)
+            @Html.DisplayFor(model => model.data.username)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.bitly_gif_url)
+            @Html.DisplayNameFor(model => model.data.source)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.bitly_gif_url)
+            @Html.DisplayFor(model => model.data.source)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.bitly_url)
+            @Html.DisplayNameFor(model => model.data.title)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.bitly_url)
+            @Html.DisplayFor(model => model.data.title)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.username)
+            @Html.DisplayNameFor(model => model.data.rating)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.username)
+            @Html.DisplayFor(model => model.data.rating)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.source)
+            @Html.DisplayNameFor(model => model.data.content_url)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.source)
+            @Html.DisplayFor(model => model.data.content_url)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.title)
+            @Html.DisplayNameFor(model => model.data.source_tld)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.title)
+            @Html.DisplayFor(model => model.data.source_tld)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.rating)
+            @Html.DisplayNameFor(model => model.data.source_post_url)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.rating)
+            @Html.DisplayFor(model => model.data.source_post_url)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.content_url)
+            @Html.DisplayNameFor(model => model.data.is_sticker)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.content_url)
+            @Html.DisplayFor(model => model.data.is_sticker)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.source_tld)
+            @Html.DisplayNameFor(model => model.data.import_datetime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.source_tld)
+            @Html.DisplayFor(model => model.data.import_datetime)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.source_post_url)
+            @Html.DisplayNameFor(model => model.data.trending_datetime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.source_post_url)
+            @Html.DisplayFor(model => model.data.trending_datetime)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.is_sticker)
+            @Html.DisplayNameFor(model => model.data.analytics_response_payload)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.is_sticker)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.import_datetime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.import_datetime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.trending_datetime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.trending_datetime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.analytics_response_payload)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.analytics_response_payload)
+            @Html.DisplayFor(model => model.data.analytics_response_payload)
         </dd>
     </dl>
 </div>

@@ -8,7 +8,6 @@ namespace GiphyApi.Models
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-
-
     }
+
 }
