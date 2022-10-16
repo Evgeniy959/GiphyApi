@@ -5,13 +5,14 @@ namespace GiphyApi.Models
 {
     public class GiphyApiResponse
     {
-        [JsonPropertyName("data")]
-        public IEnumerable<Data> dataArr { get; set; }
+        //[JsonPropertyName("data")]
+        public IEnumerable<Data> data { get; set; }
         public Pagination pagination { get; set; }
         /*[JsonPropertyName("meta")]
         public Meta metaArr { get; set; }*/
-        public Data data { get; set; }
+        //public Data data { get; set; }
         public Meta meta { get; set; }
+        public GiphyApiDetails Giphy { get; set; }
     }
 
 }
