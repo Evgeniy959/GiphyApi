@@ -1,4 +1,4 @@
-﻿namespace GiphyApi.Models
+﻿/*namespace GiphyApi.Models
 {
     public class GiphyApiDetails
     {
@@ -6,4 +6,4 @@
         public Meta meta { get; set; }
     }
 
-}
+}*/
