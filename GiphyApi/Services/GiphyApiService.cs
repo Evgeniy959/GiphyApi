@@ -45,4 +45,3 @@ namespace GiphyApi.Services
 }
 //https://api.giphy.com/v1/gifs/search?api_key=01riibfAzoW0vJwE5crOV45rAm6NAzcJ&q=%D0%BB%D0%B5%D0%B2&limit=25&offset=0&rating=g&lang=en
 //https://api.giphy.com/v1/gifs/553vlRAc1XZTVlAk3L?api_key=01riibfAzoW0vJwE5crOV45rAm6NAzcJ
-//https://api.giphy.com/v1/gifs/553vlRAc1XZTVlAk3L?api_key=01riibfAzoW0vJwE5crOV45rAm6NAzcJ

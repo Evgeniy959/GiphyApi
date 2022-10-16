@@ -6,7 +6,7 @@
 <h1>Search results by title : @Model.Title</h1>
 <small>Total count :  @Model.TotalCount </small>
 <div class="row">
-    @foreach (var item in Model.data)
+    @foreach (var item in Model.Data)
     {
         <div class="col-md-4">
             <partial name="_MovieCardPartial" model="item" />
