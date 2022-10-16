@@ -33,13 +33,18 @@ namespace GiphyApi.Services
             var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
             return result;
         }
-        public async Task<GiphyApiDetails> SearchById(string id)
+        public async Task<GiphyApiResponse> SearchById(string id)
         {
             var response = await httpClient.GetAsync($"{BaseUrl}{id}?apikey={ApiKey}");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<GiphyApiDetails>(json);
+            var result = JsonSerializer.Deserialize<GiphyApiResponse>(json);
             return result;
         }
+
+        /*Task<GiphyApiDetails> IGiphyApiService.SearchById(string id)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 
 }

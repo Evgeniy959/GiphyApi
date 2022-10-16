@@ -8,7 +8,7 @@ namespace GiphyApi.Services
         string ApiKey { get; }
         string BaseUrl { get; }
 
-        Task<GiphyApiDetails> SearchById(string id);
+        Task<GiphyApiResponse> SearchById(string id);
         Task<GiphyApiResponse> SearchByTitle(string title, int page);
     }
 }

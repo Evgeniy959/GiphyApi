@@ -35,7 +35,7 @@ namespace GiphyApi.Controllers
             {
                 CurrentPage = page,
                 Title = giphyTitle,
-                data = result.data,
+                Data = result.dataArr,
                 TotalPages = (int)Math.Ceiling(result.pagination.total_count / 24.0),
                 TotalCount = result.pagination.total_count
             };

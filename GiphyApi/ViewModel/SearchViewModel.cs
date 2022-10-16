@@ -8,7 +8,7 @@ namespace GiphyApi.ViewModel
 {
     public class SearchViewModel
     {
-        public IEnumerable<Data> data { get; set; }
+        public IEnumerable<Data> Data { get; set; }
         public string Title { get; set; }
         public int TotalCount { get; set; }
         public int CurrentPage { get; set; }
