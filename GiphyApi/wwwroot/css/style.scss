@@ -20,13 +20,17 @@ iframe {
     object-fit: cover;   
 }
 .top-div {
-    margin-top: 5px
+    margin-top: 5px;
+    position: relative;
 }
 
 .img-div {
+    position:relative;
     height: 190px;
 }
 
 .show {
+    position: absolute;
+    bottom: 5rem;
     width: 14rem;
 }
